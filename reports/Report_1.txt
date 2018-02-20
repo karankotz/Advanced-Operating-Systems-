@@ -1,0 +1,92 @@
+1) What is Orphan and Zombie Process ?
+
+An Orphan process is one which is still running even though it's parent process execution has been completed.
+The orphaned process is sometimes adopted by the special process called init in unix like operating systems. 
+
+The process might be orphaned intentionally or unintentionally, the process will be orphaned intentionally 
+when the user separates the process from the parent process to make it to run in the background for the intented usage. 
+The unintentional orphanage of the process happens when the parent process has been killed due to an error or a bug.
+The unintentional and the intentional concepts related to the orphan process has been referred from the reference [1].
+
+Intentionally orphaning the child process will create a daemon process. 
+
+The below is an example of the code with respect to the Orphan process, referred from [2] :
+
+In the code below, the child process is still running even though the parent process has completed its execution.
+int main()
+{
+	int pid = fork();
+	//parent process
+	if(pid > 0 )
+   	printf("This is a parent process");
+	else if(pid == 0)
+	{
+		sleep(30);
+		printf("This is a child process");
+	}
+	return 0;
+}
+
+
+Zombie process (Defunct Process)
+   
+The zombie process is one which has completed it's task or execution, but still has access to the process table.
+
+Most of the times the child process first becomes the zombie process[2], as the child process reports the exit status 
+to the parent process and the parent process will remove the entry of the child from the parent table.
+Sometimes, failing to remove the entry of the child process from the process table will 
+create a zombie process(although there are other causes).
+
+A zombie process will be waiting for the parent to read its exit status and will not be adopted by the init process like an orphaned process.[3]
+
+Example for the zombie process[4]:
+// The parent process will sleep forever and the child process exits after few seconds and the child will be in a state of zombie.
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(void)
+{
+printf("parent :%d\n", getpid());
+pid = fork();
+
+if(pid == 0)
+{
+printf("Child process");
+sleep(3);
+exit(1);
+} 
+while(1)
+{
+sleep(3);
+}
+}
+
+***********Question 2***********
+
+2)What are the changes that occur when the child process calls the exec system call to execute a new program?
+
+Answer :-
+
+When the child process calls the exec system call the below changes occur :
+
+1) The program file given by the path argument in exec will be loaded into the child process address space and overwrite the child process program.
+
+2) The other arguments provided to the exec will be provided to the program that is loaded in the child process table.
+
+3) The loaded program starts its execution and the original child program in the address space is replaced by the new program.
+
+4) All the child data that has not been passed or saved to the new program is lost.
+
+5) The exec function does not return back to the child process which has called, and sometimes if it 
+returns then the error occurs and the return value is -1.
+
+
+References :-
+[1]. https://www.gmarik.info/blog/2012/orphan-vs-zombie-vs-daemon-processes/
+[2]. http://www.geeksforgeeks.org/zombie-and-orphan-processes-in-c/
+[3]. http://bencane.com/2012/07/02/when-zombies-invade-linux-what-are-zombie-processes-and-what-to-do-about-them/
+[4]. https://www.bottomupcs.com/fork_and_exec.xhtml
+
+
+
+

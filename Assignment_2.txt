@@ -1,0 +1,57 @@
+What are the two things that you learned form this assignment?
+
+***)What are 2 things that you learned from this assignment?
+
+The two concepts that I have learned from this assignment are :
+
+1)co-ordination of the proccesses.
+
+When all the proccesses start executing they need to be synchronized as per the schedule of the user designed system. 
+Since more proccesses come to execute the proccesses need to execute in a sequence so as to be synchronized. The proccesses
+need to execute in the sequential order one after the another as in counting the numbers from the n to 0. So I learn't that
+this is the most important concept in the operating system, and this is how complicated the job of OS is to co-ordinate.
+ 
+
+2)Semaphores and Polling
+
+I also understood the two major concepts of the semaphores and the polling which can be used to synchronize the proccesses.
+With respect to the polling I came to know how the real world architecture of the operating system is designed, and for example in
+a smartphone if the process needs to check messages then it has to continously check if the message has been arrived.
+With repsect to the semaphores I came to understand the concepts of the wait and the signal. Wait will decreament the semaphore 
+value and add the process to the waiting queue. Signal will increament the semaphore value and then calls the process to execute.
+
+I also additionally came to know why we need to declare the variable as the volatile, if we declare the variable as volatile then
+the variable will be excluded to be optimized from the compiler and the variable value can be modified outside the main process by the 
+other proccesses.
+
+***)What are 2 mistakes that you made in this assignment, and how did you discover and fix these mistakes?
+
+The two mistakes that I made from the assignment where :
+
+1) Declartion of the variable as the volatile.
+
+==> Initially I had declared one of the variable as only normal int, as this will have the value subject to the compiler optimization 
+then the value might be modified. So we need to declare the variable as the volatile, as the global variables might not have the
+ correct values if they are modified by the multiple processes. After, I had executed the program by declaring the variables as 
+ volatile then the values were correct.
+
+2) Mistake with respect to the Semaphore. 
+    
+==> The next mistake was that I had made the mistake in synchronizing the proccesses using the semaphores. The sempahore need to 
+be synchronized correctly by understanding the concepts of the wait and signal, which I later studied and understood by watching the video.
+in the link as mentioned below: 
+https://www.youtube.com/watch?v=-GnLLXPjLN4
+
+***)If you were restarting this assignment, what would you change about how you went about completing this assignment?
+
+==> If I am restarting the assignment then I would walk over the libraries at first which are included and needed for working on the code, as I had
+    the problem of reading the command line arguments using the strtol, and I had used the other function called as atoi, which has the limited error 
+    handling capabilities. 
+    
+==> I would also make sure that the global variables are declared and initialized correctly with the volatile key word so as to get the 
+    correct values.
+ 
+==> I would make sure that the separate functions are initialized and correctly executed in the other process_ring.c function, as when I had started the assignment
+    I had written everything in one code, and modifying it was cumbersome.
+
+

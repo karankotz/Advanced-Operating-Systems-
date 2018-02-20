@@ -1,0 +1,33 @@
+Commit of the part 
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Committer: Karan Ravi Kotabagi <kkotabag@silo.soic.indiana.edu>
+#
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	new file:   COMMIT_EDITMSG
+#	modified:   compile/.defs
+#	modified:   compile/xinu
+#	modified:   compile/xinu.bin
+#	modified:   compile/xinu.boot
+#	modified:   compile/xinu.map
+#	new file:   config/conf.c
+#	new file:   config/conf.h
+#	new file:   config/config
+#	new file:   config/lex.yy.c
+#	new file:   config/y.tab.c
+#	new file:   include/conf.h
+#	deleted:    programs/assignment_1/.MakefileMakefile:2:.swp
+#	deleted:    programs/assignment_1/.nfs00000000806888b600009ee4
+#	deleted:    programs/assignment_1/.sampl.c.swm
+#	deleted:    programs/assignment_1/.sampl.c.swn
+#	deleted:    programs/assignment_1/.sampl.c.swo
+#	modified:   programs/assignment_1/.sampl.c.swp
+#	modified:   programs/assignment_1/.sys_info.c.swp
+#	modified:   programs/assignment_1/sys_info
+#	modified:   programs/assignment_1/sys_info.c
+#	new file:   system/conf.c
+#
